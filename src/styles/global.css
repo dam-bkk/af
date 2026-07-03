@@ -105,9 +105,18 @@ a:hover { color: var(--petrole); }
 .fond-vivant .motif {
   position: absolute; inset: -10%;
   background: url('/motif-af.svg') 0 0 / 11rem auto repeat;
-  opacity: 0.5;
+  opacity: 0.3; /* tracé du SVG à 0.1 -> ~0.03 effectif sur desktop */
   mask-image: radial-gradient(120% 90% at 50% 0%, black 0%, transparent 70%);
   -webkit-mask-image: radial-gradient(120% 90% at 50% 0%, black 0%, transparent 70%);
+}
+/* mobile : le motif AF participe davantage au décor (moins d'orbes visibles) */
+@media (max-width: 47rem) {
+  .fond-vivant .motif {
+    background-size: 8.5rem auto;
+    opacity: 0.85;
+    mask-image: radial-gradient(140% 100% at 50% 0%, black 0%, transparent 82%);
+    -webkit-mask-image: radial-gradient(140% 100% at 50% 0%, black 0%, transparent 82%);
+  }
 }
 .fond-vivant .orbe {
   position: absolute; border-radius: 50%;
