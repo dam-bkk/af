@@ -1,0 +1,22 @@
+---
+import type { CollectionEntry } from 'astro:content';
+
+interface Props {
+  oeuvre: CollectionEntry<'oeuvres'>;
+}
+const { oeuvre } = Astro.props;
+const d = oeuvre.data;
+
+// « Acrylique sur toile — 61 × 50 cm — 2024 » : seules les infos connues s'affichent
+const technique = d.technique === 'acrylique' ? `Acrylique sur ${d.support}` : 'Aquarelle';
+const ligne = [technique, d.dimensions, d.annee].filter(Boolean).join(' — ');
+---
+
+<figcaption class="cartel">
+  <p class="titre">{d.titre}</p>
+  <p class="ligne">{ligne}</p>
+  <p class="reference">
+    <span>{d.reference}</span>
+    {d.disponible && <span class="pastille">Disponible</span>}
+  </p>
+</figcaption>

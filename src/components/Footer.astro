@@ -1,0 +1,19 @@
+---
+import Monogramme from './Monogramme.astro';
+import { mailto } from '../lib/site';
+const annee = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="conteneur">
+    <a href="/" aria-label="Annick Fleury — accueil"><Monogramme /></a>
+    <p style="margin:0">
+      © {annee} Annick Fleury — Artiste-peintre, région nantaise ·
+      <a href={mailto()}>Écrire à l'artiste</a>
+    </p>
+    <p style="margin:0">
+      <!-- TODO : lien Instagram réel -->
+      <a href="https://instagram.com/" rel="me noopener" target="_blank">Instagram</a>
+    </p>
+  </div>
+</footer>

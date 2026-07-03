@@ -1,0 +1,31 @@
+---
+// Monogramme AF (signature de l'artiste).
+// Par défaut il hérite de la couleur du texte ; `degrade` applique le
+// dégradé de marque (#FF003D → #D24CC5) du logo.
+interface Props { class?: string; degrade?: boolean }
+const { class: className, degrade = false } = Astro.props;
+const uid = `afdeg-${Math.random().toString(36).slice(2, 8)}`;
+---
+
+<svg
+  class={className}
+  viewBox="-32 -32 785 854"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+>
+  {degrade && (
+    <defs>
+      <linearGradient id={uid} x1="25" y1="26" x2="696" y2="764" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#FF003D" />
+        <stop offset="1" stop-color="#D24CC5" />
+      </linearGradient>
+    </defs>
+  )}
+  <path
+    d="M25.0039 221.473C25.0039 221.473 111.317 273.145 206.669 318.608M206.669 318.608C240.846 334.903 276.184 350.401 309.124 362.436M206.669 318.608L163.459 482.405M206.669 318.608L283.693 26.6335C284.316 24.2737 287.727 24.5987 287.901 27.0345L309.124 362.436M309.124 362.436C317.451 365.478 325.625 368.299 333.588 370.855C356.684 378.271 382.332 384.85 409.008 390.665M309.124 362.436L327.159 647.45M409.008 390.665C540.056 419.231 695.909 429.335 695.909 429.335M409.008 390.665L395.733 202.552M435.378 764.358L418.303 522.394L409.008 390.665M418.303 522.394C418.303 522.394 472.344 531.084 511.452 536.496C555.591 542.605 588.598 545.697 588.598 545.697"
+    stroke={degrade ? `url(#${uid})` : 'currentColor'}
+    stroke-width="50"
+    stroke-linecap="round"
+  />
+</svg>

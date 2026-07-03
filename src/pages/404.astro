@@ -1,0 +1,20 @@
+---
+import Base from '../layouts/Base.astro';
+import Monogramme from '../components/Monogramme.astro';
+---
+
+<Base
+  titre="Salle introuvable — Annick Fleury"
+  description="Cette salle du musée n'existe pas."
+>
+  <div class="conteneur page-404">
+    <div style="width:4rem;margin:0 auto 1.5rem"><Monogramme degrade /></div>
+    <h1>Cette salle du musée n'existe pas.</h1>
+    <p style="color:var(--encre-2)">
+      La toile que vous cherchez a peut-être été déplacée, ou n'a jamais été accrochée ici.
+    </p>
+    <p style="margin-top:2rem">
+      <a class="bouton" href="/galerie/">Retourner à la galerie</a>
+    </p>
+  </div>
+</Base>

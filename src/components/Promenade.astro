@@ -1,0 +1,77 @@
+---
+/**
+ * Promenade horizontale (desktop) : section sticky, les œuvres défilent
+ * latéralement au scroll comme sur une cimaise. Flèches + clavier.
+ * Mobile et prefers-reduced-motion : grille verticale simple.
+ */
+import type { CollectionEntry } from 'astro:content';
+import Oeuvre from './Oeuvre.astro';
+
+interface Props {
+  oeuvres: CollectionEntry<'oeuvres'>[];
+  etiquette: string;
+}
+const { oeuvres, etiquette } = Astro.props;
+---
+
+<section class="promenade" aria-label={etiquette}>
+  <div class="cimaise-fenetre">
+    <div class="cimaise conteneur">
+      {oeuvres.map((o, i) => (
+        <Oeuvre oeuvre={o} loading={i < 3 ? 'eager' : 'lazy'} sizes="(min-width: 64rem) 40vw, 92vw" />
+      ))}
+    </div>
+  </div>
+  <div class="promenade-fleches">
+    <button class="fleche" data-sens="-1" aria-label="Œuvre précédente">
+      <svg width="9" height="16" viewBox="0 0 9 16" aria-hidden="true"><path d="M8 1L1 8l7 7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    </button>
+    <button class="fleche" data-sens="1" aria-label="Œuvre suivante">
+      <svg width="9" height="16" viewBox="0 0 9 16" aria-hidden="true"><path d="M1 1l7 7-7 7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+    </button>
+  </div>
+</section>
+
+<script>
+  const promenades = document.querySelectorAll<HTMLElement>('.promenade');
+  const active = matchMedia('(min-width: 64rem)').matches && !matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  promenades.forEach((section) => {
+    if (!active) return;
+    const cimaise = section.querySelector<HTMLElement>('.cimaise')!;
+    section.dataset.actif = '';
+
+    let dist = 0;
+    const mesure = () => {
+      dist = Math.max(0, cimaise.scrollWidth - innerWidth);
+      section.style.setProperty('--promenade-h', `calc(100vh + ${dist}px)`);
+    };
+    mesure();
+    addEventListener('resize', mesure);
+    // re-mesure quand les images finissent de charger
+    cimaise.querySelectorAll('img').forEach((im) => im.addEventListener('load', mesure));
+
+    let raf = 0;
+    const rend = () => {
+      raf = 0;
+      const r = section.getBoundingClientRect();
+      const progres = Math.min(1, Math.max(0, -r.top / (r.height - innerHeight || 1)));
+      cimaise.style.transform = `translateX(${-progres * dist}px)`;
+    };
+    addEventListener('scroll', () => { if (!raf) raf = requestAnimationFrame(rend); }, { passive: true });
+    rend();
+
+    const pas = () => dist / Math.max(1, cimaise.children.length - 1);
+    const avance = (sens: number) => scrollBy({ top: sens * pas(), behavior: 'smooth' });
+    section.querySelectorAll<HTMLButtonElement>('.fleche').forEach((b) =>
+      b.addEventListener('click', () => avance(Number(b.dataset.sens)))
+    );
+    addEventListener('keydown', (e) => {
+      const r = section.getBoundingClientRect();
+      const visible = r.top <= 0 && r.bottom >= innerHeight;
+      if (!visible || (e.target as HTMLElement).closest('input, textarea, dialog')) return;
+      if (e.key === 'ArrowRight') { e.preventDefault(); avance(1); }
+      if (e.key === 'ArrowLeft') { e.preventDefault(); avance(-1); }
+    });
+  });
+</script>

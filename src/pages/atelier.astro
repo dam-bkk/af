@@ -1,0 +1,71 @@
+---
+import Base from '../layouts/Base.astro';
+import Oeuvre from '../components/Oeuvre.astro';
+import { getCollection } from 'astro:content';
+import { mailto } from '../lib/site';
+
+const oeuvres = (await getCollection('oeuvres')).sort((a, b) => a.data.ordre - b.data.ordre);
+const respiration = oeuvres.find((o) => o.data.reference === 'AF-24-010');
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: 'Annick Fleury',
+  jobTitle: 'Artiste-peintre',
+  description:
+    "Artiste-peintre de la région nantaise. Peintures acryliques et aquarelles : couleurs vibrantes et textures riches.",
+  homeLocation: { '@type': 'Place', name: 'Région nantaise, France' },
+  url: new URL('/atelier/', Astro.site).href,
+};
+---
+
+<Base
+  titre="L'atelier — Annick Fleury"
+  description="Biographie et démarche d'Annick Fleury, artiste-peintre de la région nantaise : acryliques et aquarelles entre mer, forêts et lumière."
+  jsonLd={jsonLd}
+>
+  <div class="conteneur section">
+    <p class="kicker">L'atelier</p>
+    <h1 class="titre-section"><span class="mot">L'ate<span class="tint">l</span>ier</span></h1>
+
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(min(24rem,100%),1fr));gap:clamp(2rem,6vw,5rem);margin-top:3rem;align-items:start">
+      <div>
+        <h2 style="font-size:var(--t-sub)">La démarche</h2>
+        <!-- PLACEHOLDER à faire valider par Annick — remplacer librement -->
+        <p>
+          Artiste-peintre de la région nantaise, je suis fière de vous présenter
+          une collection diversifiée d'œuvres d'art contemporain, réalisée avec
+          passion et constance.
+        </p>
+        <p style="color:var(--encre-2)">
+          Entre acrylique et aquarelle, mon travail explore les paysages de
+          l'Atlantique — la mer, les sous-bois, les ciels chargés — à travers la
+          matière : couleurs vibrantes et textures riches ajoutent de la
+          profondeur à chaque œuvre. Chaque toile commence par une émotion de
+          lumière ; le geste, ensuite, cherche à la retenir.
+        </p>
+        <p style="color:var(--encre-2)">
+          Les œuvres présentées ici sont visibles à l'atelier sur rendez-vous.
+          Si l'une d'elles vous parle, écrivez-moi en mentionnant sa référence.
+        </p>
+        <p style="margin-top:2rem"><a class="bouton bouton--fantome" href={mailto()}>Écrire à l'artiste</a></p>
+      </div>
+      <div>
+        {respiration && <Oeuvre oeuvre={respiration} sizes="(min-width: 56rem) 38vw, 92vw" />}
+      </div>
+    </div>
+
+    <div class="section--panneau" style="margin-top:clamp(3rem,8vw,6rem);padding:clamp(2rem,5vw,3.5rem)">
+      <h2 style="font-size:var(--t-sub)">Photos d'atelier</h2>
+      <p style="color:var(--encre-2);max-width:var(--mesure)">
+        <!-- TODO : photos de l'atelier / de l'artiste au travail (à venir) -->
+        Les photos de l'atelier et de l'artiste au travail arrivent bientôt.
+      </p>
+      <h2 style="font-size:var(--t-sub);margin-top:2.5rem">Expositions</h2>
+      <p style="color:var(--encre-2);max-width:var(--mesure)">
+        <!-- TODO : liste des expositions passées / à venir, si disponible -->
+        La liste des expositions sera publiée prochainement.
+      </p>
+    </div>
+  </div>
+</Base>

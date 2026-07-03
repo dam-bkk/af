@@ -1,0 +1,50 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Oeuvre from '../../components/Oeuvre.astro';
+
+const oeuvres = (await getCollection('oeuvres')).sort((a, b) => a.data.ordre - b.data.ordre);
+---
+
+<Base
+  titre="Galerie — Annick Fleury"
+  description="Vue d'ensemble des œuvres d'Annick Fleury : acryliques et aquarelles, présentées comme dans une salle d'exposition."
+>
+  <div class="conteneur section">
+    <p class="kicker">Galerie</p>
+    <h1 class="titre-section"><span class="mot">Créa<span class="tint">t</span>ions</span></h1>
+    <p style="max-width:var(--mesure);color:var(--encre-2);margin-top:1.5rem">
+      L'ensemble des œuvres, accrochées comme sur une cimaise. Cliquez sur une
+      toile pour la découvrir en détail.
+    </p>
+
+    <div class="filtres" role="group" aria-label="Filtrer par technique" style="margin-top:2.5rem">
+      <button class="filtre" aria-pressed="true" data-technique="">Toutes</button>
+      <button class="filtre" aria-pressed="false" data-technique="acrylique">Acryliques</button>
+      <button class="filtre" aria-pressed="false" data-technique="aquarelle">Aquarelles</button>
+    </div>
+
+    <div class="grille-musee" id="grille">
+      {oeuvres.map((o, i) => (
+        <Oeuvre oeuvre={o} loading={i < 6 ? 'eager' : 'lazy'} sizes="(min-width: 64rem) 28vw, 92vw" />
+      ))}
+    </div>
+  </div>
+
+  <script>
+    const grille = document.getElementById('grille')!;
+    const boutons = document.querySelectorAll<HTMLButtonElement>('.filtre');
+    const applique = (t: string) => {
+      if (t) grille.dataset.filtre = t;
+      else delete grille.dataset.filtre;
+      boutons.forEach((b) => b.setAttribute('aria-pressed', String(b.dataset.technique === t)));
+    };
+    boutons.forEach((b) =>
+      b.addEventListener('click', () => {
+        applique(b.dataset.technique!);
+        history.replaceState(null, '', b.dataset.technique ? `#${b.dataset.technique}` : location.pathname);
+      })
+    );
+    if (location.hash) applique(location.hash.slice(1));
+  </script>
+</Base>

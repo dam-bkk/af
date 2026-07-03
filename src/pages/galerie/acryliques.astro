@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Promenade from '../../components/Promenade.astro';
+
+const oeuvres = (await getCollection('oeuvres', (o) => o.data.collection === 'acryliques')).sort(
+  (a, b) => a.data.ordre - b.data.ordre
+);
+---
+
+<Base
+  titre="Acryliques — Annick Fleury"
+  description="La collection d'acryliques d'Annick Fleury : matière, profondeur et couleurs vibrantes, en promenade comme dans une salle de musée."
+>
+  <div class="conteneur" style="padding-block:clamp(2.5rem,6vw,4.5rem) 0">
+    <p class="kicker"><a href="/galerie/" style="text-decoration:none">Galerie</a> · Collection</p>
+    <h1 class="titre-section"><span class="mot">Acryli<span class="tint">q</span>ues</span></h1>
+    <p style="max-width:var(--mesure);color:var(--encre-2);margin-top:1.5rem">
+      {oeuvres.length} œuvres. Sur grand écran, faites défiler : la salle se
+      parcourt comme une cimaise, de gauche à droite.
+    </p>
+  </div>
+  <Promenade oeuvres={oeuvres} etiquette="Collection acryliques" />
+</Base>

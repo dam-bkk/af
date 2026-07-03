@@ -1,0 +1,78 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Oeuvre from '../../components/Oeuvre.astro';
+import Lightbox from '../../components/Lightbox.astro';
+import { img, ogImage } from '../../lib/images';
+import { mailto } from '../../lib/site';
+
+export async function getStaticPaths() {
+  const oeuvres = (await getCollection('oeuvres')).sort((a, b) => a.data.ordre - b.data.ordre);
+  return oeuvres.map((oeuvre, i) => ({
+    params: { slug: oeuvre.data.reference.toLowerCase() },
+    props: {
+      oeuvre,
+      precedente: oeuvres[(i - 1 + oeuvres.length) % oeuvres.length],
+      suivante: oeuvres[(i + 1) % oeuvres.length],
+    },
+  }));
+}
+
+const { oeuvre, precedente, suivante } = Astro.props;
+const d = oeuvre.data;
+const slug = d.reference.toLowerCase();
+const entry = img(slug);
+const technique = d.technique === 'acrylique' ? `Acrylique sur ${d.support}` : 'Aquarelle';
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'VisualArtwork',
+  name: d.titre,
+  image: new URL(ogImage(slug), Astro.site).href,
+  artMedium: d.technique === 'acrylique' ? 'Acrylique' : 'Aquarelle',
+  artform: 'Peinture',
+  ...(d.dimensions && { size: d.dimensions }),
+  ...(d.annee && { dateCreated: String(d.annee) }),
+  creator: { '@type': 'Person', name: 'Annick Fleury', jobTitle: 'Artiste-peintre' },
+};
+---
+
+<Base
+  titre={`${d.titre} — Annick Fleury`}
+  description={`« ${d.titre} » (${d.reference}), ${technique.toLowerCase()} d'Annick Fleury. ${d.alt}`}
+  ogImage={ogImage(slug)}
+  jsonLd={jsonLd}
+>
+  <div class="conteneur section">
+    <p class="kicker">
+      <a href="/galerie/" style="text-decoration:none">Galerie</a> · {d.collection === 'acryliques' ? 'Acryliques' : 'Aquarelles'}
+    </p>
+    <div class="page-oeuvre" style="margin-top:2rem">
+      <Oeuvre oeuvre={oeuvre} mode="lightbox" cartel={false} loading="eager" fetchpriority="high" sizes="(min-width: 56rem) 60vw, 92vw" />
+      <aside class="cartel-complet">
+        <h1 class="titre" style="font-family:var(--font-display)">{d.titre}</h1>
+        <dl>
+          <div><dt>Technique</dt><dd>{technique}</dd></div>
+          {d.dimensions && <div><dt>Dimensions</dt><dd>{d.dimensions}</dd></div>}
+          {d.annee && <div><dt>Année</dt><dd>{d.annee}</dd></div>}
+          <div><dt>Référence</dt><dd>{d.reference}</dd></div>
+          {d.disponible && <div><dt>Statut</dt><dd><span class="pastille">Disponible</span></dd></div>}
+        </dl>
+        {oeuvre.body?.trim() && <p style="color:var(--encre-2)">{oeuvre.body.trim()}</p>}
+        <p style="margin-top:1.5rem">
+          <a class="bouton" href={mailto(`Œuvre ${d.reference} — « ${d.titre} »`)}>Cette œuvre vous intéresse ?</a>
+        </p>
+        <p style="font-size:var(--t-tiny);color:var(--encre-2);margin-top:1rem">
+          Cliquez sur l'œuvre pour l'observer en plein écran, matière comprise.
+        </p>
+      </aside>
+    </div>
+
+    <nav class="oeuvre-voisines" aria-label="Œuvres voisines">
+      <a href={`/oeuvre/${precedente.data.reference.toLowerCase()}/`} rel="prev">← {precedente.data.titre}</a>
+      <a href={`/oeuvre/${suivante.data.reference.toLowerCase()}/`} rel="next">{suivante.data.titre} →</a>
+    </nav>
+  </div>
+
+  <Lightbox oeuvres={[oeuvre, suivante, precedente].filter((o, i, a) => a.findIndex((x) => x.id === o.id) === i)} />
+</Base>

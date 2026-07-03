@@ -1,0 +1,80 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { img, srcset, src } from '../lib/images';
+import Cartel from './Cartel.astro';
+
+interface Props {
+  oeuvre: CollectionEntry<'oeuvres'>;
+  sizes?: string;
+  loading?: 'lazy' | 'eager';
+  fetchpriority?: 'high' | 'auto';
+  cartel?: boolean;
+  /** lien vers la page de l'œuvre (défaut), déclencheur de lightbox, ou image nue */
+  mode?: 'lien' | 'lightbox' | 'nu';
+  class?: string;
+}
+const {
+  oeuvre,
+  sizes = '(min-width: 64rem) 30vw, 92vw',
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  cartel = true,
+  mode = 'lien',
+  class: className,
+} = Astro.props;
+
+const d = oeuvre.data;
+const slug = d.reference.toLowerCase();
+const entry = img(slug);
+const orient = entry.ratio >= 1.05 ? 'paysage' : entry.ratio <= 0.95 ? 'portrait' : 'carre';
+// œuvre détourée (PNG alpha) : pas de fond ni d'ombre rectangulaire,
+// l'ombre suit le contour de la toile (cf. .oeuvre-cadre--alpha)
+const detouree = Boolean(entry.alpha);
+const cadreClasses = ['oeuvre-cadre', detouree && 'oeuvre-cadre--alpha'];
+const fond = detouree ? undefined : `background:${entry.dominant}`;
+---
+
+<figure
+  class:list={['oeuvre-figure', 'apparait', className]}
+  data-technique={d.technique}
+  data-orient={orient}
+>
+  {mode === 'lien' ? (
+    <a class="oeuvre-lien" href={`/oeuvre/${slug}/`} aria-label={`${d.titre} — voir l'œuvre`}>
+      <div class:list={cadreClasses} style={fond}>
+        <picture>
+          <source type="image/avif" srcset={srcset(slug, 'avif')} sizes={sizes} />
+          <source type="image/webp" srcset={srcset(slug, 'webp')} sizes={sizes} />
+          <img
+            data-oeuvre
+            src={src(slug, 800)}
+            alt={d.alt}
+            width={entry.width}
+            height={entry.height}
+            loading={loading}
+            decoding="async"
+            fetchpriority={fetchpriority}
+          />
+        </picture>
+      </div>
+    </a>
+  ) : (
+    <div class:list={cadreClasses} style={fond} data-lightbox-ouvre={mode === 'lightbox' ? slug : undefined}>
+      <picture>
+        <source type="image/avif" srcset={srcset(slug, 'avif')} sizes={sizes} />
+        <source type="image/webp" srcset={srcset(slug, 'webp')} sizes={sizes} />
+        <img
+          data-oeuvre
+          src={src(slug, 800)}
+          alt={d.alt}
+          width={entry.width}
+          height={entry.height}
+          loading={loading}
+          decoding="async"
+          fetchpriority={fetchpriority}
+        />
+      </picture>
+    </div>
+  )}
+  {cartel && <Cartel oeuvre={oeuvre} />}
+</figure>

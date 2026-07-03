@@ -1,0 +1,622 @@
+{
+  "af-24-001": {
+    "stamp": 1783080704310.346,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1700.JPG",
+    "width": 3515,
+    "height": 4578,
+    "ratio": 0.7678,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(40 72 104)",
+    "lqip": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4WAoAAAAQAAAAEwAAGQAAQUxQSGsAAAABuS5E9D8scCPZdhWhdf7J4eJpbK05tREc6zzrTm0IERMwAZsXNz104K74tXy1sPQ/5l9bEd/8gl3OL3E1CxOFOBJtJEi0SCKRRqKlKXKhMIr4rwYFZ26xzRfN4LzUF+U6WjsJmAuAF4ZWAABWUDggagAAAJAEAJ0BKhQAGgA/EXq2U6wnpSKoCqmAIglAF2ZquKTqB6u4dAsP1bPjdoBYOAD+7oRMSyes0YA++y2yg1XaMvqn2NnmEMqkUICxRBHCtvFgOCAfHQOyR0w35MTWyFus1hcQ7veHP6TMAAA=",
+    "files": [
+      "af-24-001-400.avif",
+      "af-24-001-400.webp",
+      "af-24-001-800.avif",
+      "af-24-001-800.webp",
+      "af-24-001-1200.avif",
+      "af-24-001-1200.webp",
+      "af-24-001-1600.avif",
+      "af-24-001-1600.webp",
+      "af-24-001-2400.avif",
+      "af-24-001-2400.webp",
+      "af-24-001-og.jpg"
+    ]
+  },
+  "af-24-002": {
+    "stamp": 1783080704325.8904,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1879.JPG",
+    "width": 3561,
+    "height": 4485,
+    "ratio": 0.794,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(24 56 72)",
+    "lqip": "data:image/webp;base64,UklGRgwBAABXRUJQVlA4WAoAAAAQAAAAEwAAGAAAQUxQSHsAAAABuS5E9D80bhtJchxqLaJjkgxMky4tLW/BCPrx9mL9wwRwCdCPmIAJWF44aeNGNAHutLg6VuboK3wvrgrJIrpoSoEoGEZtoWJxYRLZpJjURp7GH8MwqX5GNgVPI2MYJsJUaSIqBMgBvQnOwIEMkN9kfG+skgAHCeQxdQQAVlA4IGoAAADQBACdASoUABkAPxFyrVCsJqQisBgMAYAiCUAQXgYAAZwL1Td6bczBtAFziSV+AAD+nn1CbmnHFNV1wSSOQTH5V3+sdA/0AqI56d/HATNAyXyM31sfVYlhEEFxtQ+z4dHZwhw3zEl71kwA",
+    "files": [
+      "af-24-002-400.avif",
+      "af-24-002-400.webp",
+      "af-24-002-800.avif",
+      "af-24-002-800.webp",
+      "af-24-002-1200.avif",
+      "af-24-002-1200.webp",
+      "af-24-002-1600.avif",
+      "af-24-002-1600.webp",
+      "af-24-002-2400.avif",
+      "af-24-002-2400.webp",
+      "af-24-002-og.jpg"
+    ]
+  },
+  "af-24-003": {
+    "stamp": 1783080704334.0925,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1926.JPG",
+    "width": 2681,
+    "height": 3223,
+    "ratio": 0.8318,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(168 184 184)",
+    "lqip": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4WAoAAAAQAAAAEwAAFwAAQUxQSGwAAAABuS5E9D8cbhvZdipsREb/lbkcoh97b45eBXt09Z4iJmACtqOjmyvgjAtKgXLSWvUY1Cq/3zQmNbj7FF+4qlXwp8anoGOU6SR7J2lIbAnJBBYYYfC/sQCwwpKWxHD3T+CM/zF5l8P+4gCidwBWUDggagAAANAEAJ0BKhQAGAA/EXC0UqwlpSKwGAgBgCIJYwC7AA9Evp05EyLDLFwIj5UXrdAAAPJ0JIkILuMHPeUT8/kxoplVtTaSN9PV4DJgmtq7JrMZ2rNqive0xgiUqmDCdiM4EowXoHasO3ooAAA=",
+    "files": [
+      "af-24-003-400.avif",
+      "af-24-003-400.webp",
+      "af-24-003-800.avif",
+      "af-24-003-800.webp",
+      "af-24-003-1200.avif",
+      "af-24-003-1200.webp",
+      "af-24-003-1600.avif",
+      "af-24-003-1600.webp",
+      "af-24-003-2400.avif",
+      "af-24-003-2400.webp",
+      "af-24-003-og.jpg"
+    ]
+  },
+  "af-24-004": {
+    "stamp": 1783080704375.989,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1940.JPG",
+    "width": 3744,
+    "height": 5112,
+    "ratio": 0.7324,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(40 40 40)",
+    "lqip": "data:image/webp;base64,UklGRhYBAABXRUJQVlA4WAoAAAAQAAAAEwAAGgAAQUxQSIMAAAABuS5E9D80bhtJchxq4TL/0JiD1tLjLhhBXwCLtfkY+8AAziYiJmACNufuXvqeAikjyYFOM0tnYwrezy7+IIP4NwhDcNMwi4eKLFCFYysu7VNqelzJo6ZHKR4Vu2iyQUtkqwXHb+dR5JHpUXzk0XAJUgaRQ3RhCH5HK3tTP4iAIAjaAgBWUDggbAAAANAEAJ0BKhQAGwA/BXCsUCumpCK39VgBcCCJYgDG9AniTzd5x1KDZ3Y0l/lgGHdQAOjVIr/sEtKWIAc6/HVLtwWpCFUhiPCNACTcFHNCjUgzVmx5vDYakaki3PORtTPUsl3draA82RQLdQzgAA==",
+    "files": [
+      "af-24-004-400.avif",
+      "af-24-004-400.webp",
+      "af-24-004-800.avif",
+      "af-24-004-800.webp",
+      "af-24-004-1200.avif",
+      "af-24-004-1200.webp",
+      "af-24-004-1600.avif",
+      "af-24-004-1600.webp",
+      "af-24-004-2400.avif",
+      "af-24-004-2400.webp",
+      "af-24-004-og.jpg"
+    ]
+  },
+  "af-24-005": {
+    "stamp": 1783080704399.793,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1944.JPG",
+    "width": 2761,
+    "height": 4611,
+    "ratio": 0.5988,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(24 24 24)",
+    "lqip": "data:image/webp;base64,UklGRlgBAABXRUJQVlA4WAoAAAAQAAAAEwAAIAAAQUxQSI4AAAABuS5E9D80kCNJcq18rf8HLMF/E/AEHNBabgcW1BrQMfeJQRyfA9wjJmACzp66McEYYEg8xZO5cztLf8nnC5uqT5i3dxL7E2+LRzOY5geJ8B4SK/qUIlLRh68SKSlFz7YihjaIVNSA28IIoyRWlIRQBBIr6l8RVhSSUiCpTrihqCRpNL4wU3baCca2+4lLVlA4IKQAAABQBQCdASoUACEAPxFurFCsJiQitVQMAYAiCWxdgFeZHJWypp1+OG3gYv2zDd2XbhzaMMAA/uv6/9hNi9D3z+eam9+NIRygwrAanfFkWpybCtz+XKYodtC21v6uncDEoeuRxFc4DVFkehpwkcmfEyEH1Xg6+0Csugr6KCvJglzfd7WqZGPgBzBTShkKlJEt/ldAtZ4yyy6uuiBINIpKRwIQTAAAAA==",
+    "files": [
+      "af-24-005-400.avif",
+      "af-24-005-400.webp",
+      "af-24-005-800.avif",
+      "af-24-005-800.webp",
+      "af-24-005-1200.avif",
+      "af-24-005-1200.webp",
+      "af-24-005-1600.avif",
+      "af-24-005-1600.webp",
+      "af-24-005-2400.avif",
+      "af-24-005-2400.webp",
+      "af-24-005-og.jpg"
+    ]
+  },
+  "af-24-006": {
+    "stamp": 1783080704431.165,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1946.JPG",
+    "width": 4029,
+    "height": 3220,
+    "ratio": 1.2512,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(24 24 24)",
+    "lqip": "data:image/webp;base64,UklGRvYAAABXRUJQVlA4WAoAAAAQAAAAEwAADwAAQUxQSF0AAAABuS5E9D8crlvbNq2LZ/Tfna1f27uEubKSk4gJmIDVGt5z6L0g7up6uho+/HpDxRnK/SIAXaCfPt4lIkN8FMFVkP9zIjLEhN5EOCH9IQQF/2E8s7XjOzAGA75pGgIAVlA4IHIAAACwAwCdASoUABAAPxFysFAsJqSisAgBgCIJYwCdABouRhmHCLXTOAD56Nyk1is4kyFxqJYTcchMF5lyEYRJqOAH1f1diqDwM2XVKO3xoaumGrigcH85VrCQ1N06YvLyGON55KxZa3vcNqvO11OldPBX2gA=",
+    "files": [
+      "af-24-006-400.avif",
+      "af-24-006-400.webp",
+      "af-24-006-800.avif",
+      "af-24-006-800.webp",
+      "af-24-006-1200.avif",
+      "af-24-006-1200.webp",
+      "af-24-006-1600.avif",
+      "af-24-006-1600.webp",
+      "af-24-006-2400.avif",
+      "af-24-006-2400.webp",
+      "af-24-006-og.jpg"
+    ]
+  },
+  "af-24-007": {
+    "stamp": 1783080704458.102,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1950.JPG",
+    "width": 4029,
+    "height": 3358,
+    "ratio": 1.1998,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(216 232 232)",
+    "lqip": "data:image/webp;base64,UklGRvgAAABXRUJQVlA4WAoAAAAQAAAAEwAAEAAAQUxQSGUAAAABuS5E9D8sbmrtYZVX6BbY8e8BCSAAHX1MJHy0hJZ/YnpTxARMwHbvgk5JrQpqZBgbmNtZuWI9q5lEFkgImxLPRGESriceSpcTF7mceJAeksseJ2HI60HxN8Ha0q8CCFBVUCxsAABWUDggbAAAAHAEAJ0BKhQAEQA/EX61VawnpKMoCAGAIglAF+z6kBLSioDdispM1jCjCwfIAP6DF0P/J0Aj6nSzD1euBet8bmDLe0rGiBmx6c1MyQF7+w+b7qHyjR682zB5yltnDynCkABJf3FiY0TDMMAAAA==",
+    "files": [
+      "af-24-007-400.avif",
+      "af-24-007-400.webp",
+      "af-24-007-800.avif",
+      "af-24-007-800.webp",
+      "af-24-007-1200.avif",
+      "af-24-007-1200.webp",
+      "af-24-007-1600.avif",
+      "af-24-007-1600.webp",
+      "af-24-007-2400.avif",
+      "af-24-007-2400.webp",
+      "af-24-007-og.jpg"
+    ]
+  },
+  "af-24-008": {
+    "stamp": 1783080704489.2605,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1953.JPG",
+    "width": 3386,
+    "height": 4052,
+    "ratio": 0.8356,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(40 40 40)",
+    "lqip": "data:image/webp;base64,UklGRvwAAABXRUJQVlA4WAoAAAAQAAAAEwAAFwAAQUxQSHUAAAABuS5E9D80bhuIkZTjz6EzCqMRakI08r+2roJBG1vOV77cDTiPmIAJON5YWqj3zGnlrlrN7BzszSG9YrpIsE/2IUhLpEbdoFih4ioxloZmOWEyNFuMBrnRQgZlGi00OiqmgorjJnBIuqSTJ1t/d8PDwvubT2cAVlA4IGAAAABwBACdASoUABgAPw1yslAsJyUisBgMAYAhiWUAzNAMeTbg01l9rolVJdpaAAD+4x8uH3Al5jxRbqCOireeSOm53JEYgcJV2a4B2OKF0Yr0a6u90rwK+oRezpPXoBIAAAA=",
+    "files": [
+      "af-24-008-400.avif",
+      "af-24-008-400.webp",
+      "af-24-008-800.avif",
+      "af-24-008-800.webp",
+      "af-24-008-1200.avif",
+      "af-24-008-1200.webp",
+      "af-24-008-1600.avif",
+      "af-24-008-1600.webp",
+      "af-24-008-2400.avif",
+      "af-24-008-2400.webp",
+      "af-24-008-og.jpg"
+    ]
+  },
+  "af-24-009": {
+    "stamp": 1783071095899.7424,
+    "manuel": "{\"left\":0,\"top\":0,\"width\":6000,\"height\":4000}",
+    "alpha": false,
+    "source": "IMG_1957.JPG",
+    "width": 6000,
+    "height": 4000,
+    "ratio": 1.5,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(40 40 40)",
+    "lqip": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAACQAwCdASoUAA0APxFysFAsJqSisAgBgCIJQBdgAqVUBCK06w1AAOJApHqzp7fwQ0Ql1Y+hzxReD/VI7fmU2fxbmm0px80JvTe0vba2L6mttbSdyXLnagGP9f1+Npdwx4bz5LzGM+AAAA==",
+    "files": [
+      "af-24-009-400.avif",
+      "af-24-009-400.webp",
+      "af-24-009-800.avif",
+      "af-24-009-800.webp",
+      "af-24-009-1200.avif",
+      "af-24-009-1200.webp",
+      "af-24-009-1600.avif",
+      "af-24-009-1600.webp",
+      "af-24-009-2400.avif",
+      "af-24-009-2400.webp",
+      "af-24-009-og.jpg"
+    ]
+  },
+  "af-24-010": {
+    "stamp": 1783080704517.4954,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1960.JPG",
+    "width": 3236,
+    "height": 4294,
+    "ratio": 0.7536,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(40 40 40)",
+    "lqip": "data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAAEwAAGgAAQUxQSIUAAAABuS5E9D8sjiNJchS0BgtwC9/AAkzDCK23TZhTfa9p1L029hExAROw2pf1ZGNxKKUkLUykKS2tbXW1hB41aW/g7FHbA5osdriF0jJDRiEyIqIQDokyMcyQGaSBRMwJohHCDVJDFEajIZ2QI4gQDRH864ABypSxJ6S2bGOmdnfS75m5e9oBAFZQOCBuAAAA8AQAnQEqFAAbAD8RfLJRrCgkorAYCAGAIgljALDsDwzWqXBDrhVlagNmamhnWdqAAP7L46bbdILsLdTzg9BdijC1mfJiPzg308lfIO68e2UZIJeK3aiumVFUDt79frajqA9v09BfQFFQ0ILgAAA=",
+    "files": [
+      "af-24-010-400.avif",
+      "af-24-010-400.webp",
+      "af-24-010-800.avif",
+      "af-24-010-800.webp",
+      "af-24-010-1200.avif",
+      "af-24-010-1200.webp",
+      "af-24-010-1600.avif",
+      "af-24-010-1600.webp",
+      "af-24-010-2400.avif",
+      "af-24-010-2400.webp",
+      "af-24-010-og.jpg"
+    ]
+  },
+  "af-24-011": {
+    "stamp": 1783080704540.7073,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1964.JPG",
+    "width": 2619,
+    "height": 5189,
+    "ratio": 0.5047,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(24 24 24)",
+    "lqip": "data:image/webp;base64,UklGRm4BAABXRUJQVlA4WAoAAAAQAAAAEwAAJwAAQUxQSMsAAAABgBzbtmkrzBfBez3btvVt27Zt2wjgt3TO3d9nhRARCtO2YRRIxyn6RLpQ1txQ3tQ/N796cHB8eXW9cE8SCcLp5ojeGeP858+59B1Gl1+4uC5OEWeQk2PEPmTrDLF+SZIIo+UL4mLz54ipM8QYVCNQDV0g+q5IEuu6RLRBGq8QNVCVXSMKN2IflL1HpB4QsUdE5AkRhCpwh/BD3A8I1z3CfouwQm8z9NY9IlTPCOUjfTBBXknxgpQ8FI0m8pUlnkxHd+/g6MTMwvyNDABWUDggfAAAAJAEAJ0BKhQAKAA/EXqyUawoJKKwGqgBgCIJZwDR+BG31l1J1xTlmoO1qttpgADfQ8Xcs1BCWWqx+3BEXAYIZgPdM4Kxg8Xl/x+Mm5Qu4VVxi1/QkMLAZi08H0otUkkbxhhdqtMBRJIufVsgr2RpNzrtFHLi9e0DR9zQgAA=",
+    "files": [
+      "af-24-011-400.avif",
+      "af-24-011-400.webp",
+      "af-24-011-800.avif",
+      "af-24-011-800.webp",
+      "af-24-011-1200.avif",
+      "af-24-011-1200.webp",
+      "af-24-011-1600.avif",
+      "af-24-011-1600.webp",
+      "af-24-011-2400.avif",
+      "af-24-011-2400.webp",
+      "af-24-011-og.jpg"
+    ]
+  },
+  "af-24-012": {
+    "stamp": 1783071095973.0654,
+    "manuel": "{\"left\":500,\"top\":1100,\"width\":3055,\"height\":3790}",
+    "alpha": false,
+    "source": "IMG_1971.JPG",
+    "width": 3055,
+    "height": 3790,
+    "ratio": 0.8061,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(152 168 184)",
+    "lqip": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwBACdASoUABkAPwlsrFArpiQisAwBcCEJQBBOAPpqTnl9fp1CccbNrXAAzTKWeR9Z1iwNpwHOt8IE3y1hQpX2t1DAsa5n2vspb1/mX3QBzG34qG8IwTG5/DGLTs6m/Z1K/aoAAAA=",
+    "files": [
+      "af-24-012-400.avif",
+      "af-24-012-400.webp",
+      "af-24-012-800.avif",
+      "af-24-012-800.webp",
+      "af-24-012-1200.avif",
+      "af-24-012-1200.webp",
+      "af-24-012-1600.avif",
+      "af-24-012-1600.webp",
+      "af-24-012-2400.avif",
+      "af-24-012-2400.webp",
+      "af-24-012-og.jpg"
+    ]
+  },
+  "af-24-013": {
+    "stamp": 1783080704583.6082,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1982.JPG",
+    "width": 3038,
+    "height": 3813,
+    "ratio": 0.7967,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(168 168 168)",
+    "lqip": "data:image/webp;base64,UklGRgQBAABXRUJQVlA4WAoAAAAQAAAAEwAAGAAAQUxQSHQAAAABuS5E9D/gsLbdtPlfOVCYqON3jS7B3Eq/LB1PEDEBE7AsptcbEFDPUK/TgZ6ZW1noQTaYqbsg9IO+CAQxkCUAgcoAQrkHKBRXAQ/NhAqRCgglDxXiQHLgoDI040pCiWtFHIgkBMABUYKAdi4ODAD942bWAFZQOCBqAAAAkAQAnQEqFAAZAD8ReLFSLCckoqgNUYAiCWcAygARNFVZZx8JiZOf+zqe4egAAP6hRIYToem9OhDp/B2ijjPSqr4OPjh0NguWzDQDi8Qnbpez06JXKnyK9aKISua6uQuU+/ZT91lsNgAAAA==",
+    "files": [
+      "af-24-013-400.avif",
+      "af-24-013-400.webp",
+      "af-24-013-800.avif",
+      "af-24-013-800.webp",
+      "af-24-013-1200.avif",
+      "af-24-013-1200.webp",
+      "af-24-013-1600.avif",
+      "af-24-013-1600.webp",
+      "af-24-013-2400.avif",
+      "af-24-013-2400.webp",
+      "af-24-013-og.jpg"
+    ]
+  },
+  "af-24-014": {
+    "stamp": 1783080704609.5105,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1992.JPG",
+    "width": 3299,
+    "height": 4042,
+    "ratio": 0.8162,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(184 168 152)",
+    "lqip": "data:image/webp;base64,UklGRjwBAABXRUJQVlA4WAoAAAAQAAAAEwAAGAAAQUxQSI0AAAABuS5E9D/gqLZtN7nvJ/TOHJlYwBgaMMCMaef98tKTu8BAxARMwHFichNjwhlZmRqbmYK5hbGDm5McDDXO1N1eIrpEowCgwOnRKhpE8QUFgoF/jhhCMYDzAYVhogBMQ1EM8cUABQVCAMzoZwKGUBBFbYU2MxEA5HJtnQZGLs6uTBSZpBAFplAoBElh4gUAVlA4IIgAAAAwBQCdASoUABkAPxF0s1EsJqSiqA1RgCIJYwC1Guov/gF5VL5o1jt686uEoEnr9ELIAAD7TUzJgo3LRwBc8cemTXx2j5alljXvg51uHrYWsYHu5s05r0cqIcH1WlPk/LKDWiXItDpQVwNX6f22Ce/tLo37KYssTjIXfkHEGoQsMsgXwiRUgAAA",
+    "files": [
+      "af-24-014-400.avif",
+      "af-24-014-400.webp",
+      "af-24-014-800.avif",
+      "af-24-014-800.webp",
+      "af-24-014-1200.avif",
+      "af-24-014-1200.webp",
+      "af-24-014-1600.avif",
+      "af-24-014-1600.webp",
+      "af-24-014-2400.avif",
+      "af-24-014-2400.webp",
+      "af-24-014-og.jpg"
+    ]
+  },
+  "af-24-015": {
+    "stamp": 1783080704632.1162,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1995.JPG",
+    "width": 2982,
+    "height": 2991,
+    "ratio": 0.997,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(24 24 24)",
+    "lqip": "data:image/webp;base64,UklGRvoAAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSHIAAAABuS5E9D80jiNJUpwTM/jvmL73kgHMDDMhC/oMmOj/RJsh/SMmYALKE1tXF0QNhLoUmpIDM0NTCnzO7CAkC06ACENAhCNdfvjWlAfPPECPNnk0VB5JWyAIWQAkwvYXZIMgGgh2IcOQyIW5CuITAQlgXwlWUDggYgAAANAEAJ0BKhQAFAA/EXi3UywnJaKoCqmAIglAE6ZaGDU/B/Pn44UJuKiiNqzEzJiAAP7uhI5hfHTxNChPKyYttX9/Z7MC87OsnVtKMCH4exby+5bG/a6aAt6GtXbclCqyVzAA",
+    "files": [
+      "af-24-015-400.avif",
+      "af-24-015-400.webp",
+      "af-24-015-800.avif",
+      "af-24-015-800.webp",
+      "af-24-015-1200.avif",
+      "af-24-015-1200.webp",
+      "af-24-015-1600.avif",
+      "af-24-015-1600.webp",
+      "af-24-015-2400.avif",
+      "af-24-015-2400.webp",
+      "af-24-015-og.jpg"
+    ]
+  },
+  "af-24-016": {
+    "stamp": 1783080704658.9697,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_1998.JPG",
+    "width": 3111,
+    "height": 3114,
+    "ratio": 0.999,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(184 200 200)",
+    "lqip": "data:image/webp;base64,UklGRv4AAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSIAAAAABuS5E9D8sbmvbbRvKOdsT5NIjew8PFGfIORAjfDZABVUZVcQETMD60kFLRaSu6uyKOfCDpbawMjJ2p87/N8lA7Ih4CGqaoOqhMANhCBRpQtGgYD9LQBhIjCmShILNj6HBD1AmEYpEKRQQfvhPgnQggafANnAUf72JBSyO3oxsAVZQOCBYAAAA0AQAnQEqFAAUAD8RcrJSrCYkorAYCAGAIgllAMKAEf/58LrJlkD20dib7AWgWEAAzbesWDQ1+NjHqfJfVDkoaFYLPi15a82DuVLGT9vBWFF/csojBJQAAA==",
+    "files": [
+      "af-24-016-400.avif",
+      "af-24-016-400.webp",
+      "af-24-016-800.avif",
+      "af-24-016-800.webp",
+      "af-24-016-1200.avif",
+      "af-24-016-1200.webp",
+      "af-24-016-1600.avif",
+      "af-24-016-1600.webp",
+      "af-24-016-2400.avif",
+      "af-24-016-2400.webp",
+      "af-24-016-og.jpg"
+    ]
+  },
+  "af-24-017": {
+    "stamp": 1783080704673.1152,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_2003.JPG",
+    "width": 3172,
+    "height": 3125,
+    "ratio": 1.015,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(104 136 152)",
+    "lqip": "data:image/webp;base64,UklGRhoBAABXRUJQVlA4WAoAAAAQAAAAEwAAEwAAQUxQSHYAAAABuS5E9D/gNpIkRepjkEh7/+1iZnlhpsWZeAsiJmACrkeCoEZKkSgAEKhg9TYZgFWVOj8bqmAgEAEULAVQERCYowAcKfmbyCUBsmUZOGbCoxR5gItwIQHkUIOCrZJAVjOohmpBrWKBxd7WS0WQEiWgjIBIUeEIVlA4IH4AAAAwBQCdASoUABQAPxFyrFEsJqQisBgMAYAiCWoAnTKEgrEM+f/AMPO7tpK6AS3Hv+tdAAD5qdHNIZ/2RZGejKi2UJFAZK4dMESbCs7KFkPE+tOAw0rQjwVLktKDwxEo4+AQknllAi9oLBJQ94GGcnCD9ETlzr4jCGLMrzi0AAA=",
+    "files": [
+      "af-24-017-400.avif",
+      "af-24-017-400.webp",
+      "af-24-017-800.avif",
+      "af-24-017-800.webp",
+      "af-24-017-1200.avif",
+      "af-24-017-1200.webp",
+      "af-24-017-1600.avif",
+      "af-24-017-1600.webp",
+      "af-24-017-2400.avif",
+      "af-24-017-2400.webp",
+      "af-24-017-og.jpg"
+    ]
+  },
+  "af-24-018": {
+    "stamp": 1783080704686.3564,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_2007.JPG",
+    "width": 4332,
+    "height": 3105,
+    "ratio": 1.3952,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(152 136 120)",
+    "lqip": "data:image/webp;base64,UklGRugAAABXRUJQVlA4WAoAAAAQAAAAEwAADQAAQUxQSHgAAAABuTJE9D80blNbexuUZfAwntkLeZyc8wj3568fUi1iZRTqr4+YgAnYXNm6CBA5kk7OQrFK+i+tDWQMSIANPAsMrgQ1qgE9NQYCBOJtjl/2hr4bUvxQ/HKovhPD8B2U/hd+oP6kBqHGo0/Ec1kU1EDt6h3n9hjEwgxWUDggSgAAAHADAJ0BKhQADgA/EXCwUCwmJKKwCAGAIglAE6AC7dgyCPNr5AD+2Vn8hw37xgRkmbAGrV3yRY3TkrDJimmksm2bcKquriwdjlQA",
+    "files": [
+      "af-24-018-400.avif",
+      "af-24-018-400.webp",
+      "af-24-018-800.avif",
+      "af-24-018-800.webp",
+      "af-24-018-1200.avif",
+      "af-24-018-1200.webp",
+      "af-24-018-1600.avif",
+      "af-24-018-1600.webp",
+      "af-24-018-2400.avif",
+      "af-24-018-2400.webp",
+      "af-24-018-og.jpg"
+    ]
+  },
+  "af-24-019": {
+    "stamp": 1783080704703.9265,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_2009.JPG",
+    "width": 5008,
+    "height": 3344,
+    "ratio": 1.4976,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(24 24 24)",
+    "lqip": "data:image/webp;base64,UklGRsgAAABXRUJQVlA4WAoAAAAQAAAAEwAADAAAQUxQSFIAAAABuS5E9D/AJgDbNpKcrq84yh9HiRTA3lMQIiZgAtoZEhKRQCGEIBKk0mkU4O8OoFdb0QO9AMwWIE/vG1gtwGnZzSwL2P2DBRg3Fpo5BJy7nYMAVlA4IFAAAAAQBACdASoUAA0APxF0slCsJqSisAgBgCIJQBOkFThib40/5vC+a/u5gAD6nIeFpDFTDGyFt+YpEH8h2LoUSH0JsdBh4McleENGcdVHWQAAAA==",
+    "files": [
+      "af-24-019-400.avif",
+      "af-24-019-400.webp",
+      "af-24-019-800.avif",
+      "af-24-019-800.webp",
+      "af-24-019-1200.avif",
+      "af-24-019-1200.webp",
+      "af-24-019-1600.avif",
+      "af-24-019-1600.webp",
+      "af-24-019-2400.avif",
+      "af-24-019-2400.webp",
+      "af-24-019-og.jpg"
+    ]
+  },
+  "af-24-020": {
+    "stamp": 1783080704722.146,
+    "manuel": "png-detoure",
+    "alpha": true,
+    "source": "IMG_2012.JPG",
+    "width": 3202,
+    "height": 4358,
+    "ratio": 0.7347,
+    "widths": [
+      400,
+      800,
+      1200,
+      1600,
+      2400
+    ],
+    "dominant": "rgb(184 184 184)",
+    "lqip": "data:image/webp;base64,UklGRlQBAABXRUJQVlA4WAoAAAAQAAAAEwAAGgAAQUxQSJ0AAAABuS5E9D80kBtJdt2AngDPTInhMjHvvZd5C0XQ8nbxzl9YXT9+APuuQsQETEB3U0NJTdXzSUopVRRJU93fSEeLKfc3PVrgQNHb9EYs9pxCub/yuILg4xoWtrOFYOYSPoOFPf4j6RJmYUb+GAbRH4pvYGGPcwjmSGa5RJ5hIUZ0BCOSFiUeTeSRGO+lGA5lv/cCJfZ8DN1QFAVFvW0MAFZQOCCQAAAAsAUAnQEqFAAbAD8RdrNSLCckorAYCAGAIgliALb7L8EyUOCfy2Hs21ZsdNkqHAJtX8fbOgsIAP6M1GkvDfzyjRYxQb4hkagAGuaAN5WQeUfbZx/srUJyiJAteJlMFLsv+nkzVzyuWeT1I+D3PKstb6cFIg5ooJaw8KOnOGQ/AsC4ujoIhB/Qm6eDMHZpQAAA",
+    "files": [
+      "af-24-020-400.avif",
+      "af-24-020-400.webp",
+      "af-24-020-800.avif",
+      "af-24-020-800.webp",
+      "af-24-020-1200.avif",
+      "af-24-020-1200.webp",
+      "af-24-020-1600.avif",
+      "af-24-020-1600.webp",
+      "af-24-020-2400.avif",
+      "af-24-020-2400.webp",
+      "af-24-020-og.jpg"
+    ]
+  }
+}

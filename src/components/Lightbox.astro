@@ -1,0 +1,169 @@
+---
+/**
+ * Lightbox « salle en pénombre » : zoom (molette, double-clic, pincement),
+ * navigation flèches/clavier/swipe, fermeture Échap, focus piégé (dialog modal).
+ * Les éléments sont fournis par les [data-lightbox-ouvre] de la page.
+ */
+import type { CollectionEntry } from 'astro:content';
+import { img, srcset } from '../lib/images';
+
+interface Props {
+  oeuvres: CollectionEntry<'oeuvres'>[];
+}
+const { oeuvres } = Astro.props;
+
+const items = oeuvres.map((o) => {
+  const slug = o.data.reference.toLowerCase();
+  const entry = img(slug);
+  const technique = o.data.technique === 'acrylique' ? `Acrylique sur ${o.data.support}` : 'Aquarelle';
+  return {
+    slug,
+    alt: o.data.alt,
+    srcsetAvif: srcset(slug, 'avif'),
+    srcsetWebp: srcset(slug, 'webp'),
+    cartel: `${o.data.titre} — ${[technique, o.data.dimensions, o.data.annee].filter(Boolean).join(' — ')} · ${o.data.reference}`,
+    w: entry.width,
+    h: entry.height,
+  };
+});
+---
+
+<dialog class="lightbox" aria-label="Œuvre en plein écran">
+  <div class="scene">
+    <picture>
+      <source type="image/avif" srcset="" sizes="92vw" />
+      <source type="image/webp" srcset="" sizes="92vw" />
+      <img src="" alt="" />
+    </picture>
+  </div>
+  <p class="lb-cartel" aria-live="polite"></p>
+  <button class="lb-btn lb-fermer" aria-label="Fermer (Échap)">
+    <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><path d="M1 1l12 12M13 1L1 13" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/></svg>
+  </button>
+  <button class="lb-btn lb-prec" aria-label="Œuvre précédente">
+    <svg width="9" height="16" viewBox="0 0 9 16" aria-hidden="true"><path d="M8 1L1 8l7 7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+  </button>
+  <button class="lb-btn lb-suiv" aria-label="Œuvre suivante">
+    <svg width="9" height="16" viewBox="0 0 9 16" aria-hidden="true"><path d="M1 1l7 7-7 7" stroke="currentColor" stroke-width="1.6" fill="none" stroke-linecap="round"/></svg>
+  </button>
+</dialog>
+
+<script type="application/json" id="lightbox-items" set:html={JSON.stringify(items)} />
+
+<script>
+  const dlg = document.querySelector<HTMLDialogElement>('.lightbox')!;
+  const items = JSON.parse(document.getElementById('lightbox-items')!.textContent!);
+  const pic = dlg.querySelector('picture')!;
+  const [sAvif, sWebp] = pic.querySelectorAll('source');
+  const imgEl = pic.querySelector('img')!;
+  const cartel = dlg.querySelector<HTMLElement>('.lb-cartel')!;
+  let index = 0;
+
+  // --- état du zoom ---
+  let scale = 1, tx = 0, ty = 0;
+  const applique = () => {
+    imgEl.style.transform = scale === 1 ? '' : `translate(${tx}px, ${ty}px) scale(${scale})`;
+    imgEl.classList.toggle('zoome', scale > 1);
+  };
+  const reset = () => { scale = 1; tx = 0; ty = 0; applique(); };
+
+  const montre = (i: number) => {
+    index = (i + items.length) % items.length;
+    const it = items[index];
+    sAvif.srcset = it.srcsetAvif;
+    sWebp.srcset = it.srcsetWebp;
+    imgEl.src = `/images/oeuvres/${it.slug}-1600.webp`;
+    imgEl.alt = it.alt;
+    imgEl.width = it.w;
+    imgEl.height = it.h;
+    cartel.textContent = it.cartel;
+    reset();
+  };
+
+  document.querySelectorAll<HTMLElement>('[data-lightbox-ouvre]').forEach((el) => {
+    el.setAttribute('role', 'button');
+    el.setAttribute('tabindex', '0');
+    el.setAttribute('aria-label', 'Agrandir l’œuvre');
+    const ouvre = () => {
+      const i = items.findIndex((it: any) => it.slug === el.dataset.lightboxOuvre);
+      montre(Math.max(0, i));
+      dlg.showModal();
+    };
+    el.addEventListener('click', ouvre);
+    el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); ouvre(); } });
+  });
+
+  dlg.querySelector('.lb-fermer')!.addEventListener('click', () => dlg.close());
+  dlg.querySelector('.lb-prec')!.addEventListener('click', () => montre(index - 1));
+  dlg.querySelector('.lb-suiv')!.addEventListener('click', () => montre(index + 1));
+  dlg.addEventListener('click', (e) => { if (e.target === dlg || e.target === dlg.querySelector('.scene')) dlg.close(); });
+  dlg.addEventListener('keydown', (e) => {
+    if (e.key === 'ArrowLeft') montre(index - 1);
+    if (e.key === 'ArrowRight') montre(index + 1);
+  });
+  dlg.addEventListener('close', reset);
+
+  // --- zoom : molette, centré sur le curseur ---
+  // transform-origin = centre ; pour garder le point sous le curseur stable :
+  // t' = k·t + (1−k)·(curseur − centre du viewport)
+  const zoome = (k: number, cx: number, cy: number) => {
+    const prev = scale;
+    scale = Math.min(4, Math.max(1, scale * k));
+    const kk = scale / prev;
+    if (scale === 1) { tx = 0; ty = 0; }
+    else {
+      tx = tx * kk + (1 - kk) * (cx - innerWidth / 2);
+      ty = ty * kk + (1 - kk) * (cy - innerHeight / 2);
+    }
+    applique();
+  };
+  imgEl.addEventListener('wheel', (e) => {
+    e.preventDefault();
+    zoome(e.deltaY < 0 ? 1.18 : 1 / 1.18, e.clientX, e.clientY);
+  }, { passive: false });
+
+  imgEl.addEventListener('dblclick', (e) => {
+    zoome(scale > 1 ? 1 / scale : 2.5, e.clientX, e.clientY);
+  });
+
+  // --- pan + swipe + pincement (pointer events) ---
+  const pointeurs = new Map<number, { x: number; y: number }>();
+  let pinceDist = 0, swipeX0 = 0, panX0 = 0, panY0 = 0, txo = 0, tyo = 0;
+  imgEl.addEventListener('pointerdown', (e) => {
+    imgEl.setPointerCapture(e.pointerId);
+    pointeurs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointeurs.size === 2) {
+      const [a, b] = [...pointeurs.values()];
+      pinceDist = Math.hypot(a.x - b.x, a.y - b.y);
+    } else {
+      swipeX0 = e.clientX; panX0 = e.clientX; panY0 = e.clientY; txo = tx; tyo = ty;
+    }
+  });
+  imgEl.addEventListener('pointermove', (e) => {
+    if (!pointeurs.has(e.pointerId)) return;
+    pointeurs.set(e.pointerId, { x: e.clientX, y: e.clientY });
+    if (pointeurs.size === 2) {
+      const [a, b] = [...pointeurs.values()];
+      const d = Math.hypot(a.x - b.x, a.y - b.y);
+      if (pinceDist > 0) {
+        scale = Math.min(4, Math.max(1, scale * (d / pinceDist)));
+        pinceDist = d;
+        if (scale === 1) { tx = 0; ty = 0; }
+        applique();
+      }
+    } else if (scale > 1) {
+      tx = txo + (e.clientX - panX0);
+      ty = tyo + (e.clientY - panY0);
+      applique();
+    }
+  });
+  imgEl.addEventListener('pointerup', (e) => {
+    if (pointeurs.size === 1 && scale === 1) {
+      const dx = e.clientX - swipeX0;
+      if (Math.abs(dx) > 60) montre(index + (dx < 0 ? 1 : -1));
+    }
+    pointeurs.delete(e.pointerId);
+    pinceDist = 0;
+  });
+  imgEl.addEventListener('pointercancel', (e) => { pointeurs.delete(e.pointerId); pinceDist = 0; });
+</script>

@@ -1,0 +1,47 @@
+---
+import Monogramme from './Monogramme.astro';
+
+const chemin = Astro.url.pathname;
+const actif = (p: string) =>
+  (p === '/' ? chemin === '/' : chemin.startsWith(p)) ? 'page' : undefined;
+
+const entrees = [
+  { href: '/galerie/', label: 'Galerie' },
+  { href: '/atelier/', label: "L'atelier" },
+];
+---
+
+<header class="site-header">
+  <div class="conteneur barre">
+    <a class="marque" href="/" aria-label="Annick Fleury — accueil">
+      <Monogramme degrade />
+      <span>
+        <span class="nom">Annick Fleury</span>
+        <span class="metier">Peinture · Acrylique &amp; aquarelle</span>
+      </span>
+    </a>
+    <button class="burger" aria-expanded="false" aria-controls="nav" aria-label="Menu">
+      <svg width="22" height="16" viewBox="0 0 22 16" fill="none" aria-hidden="true">
+        <path d="M1 1h20M1 8h20M1 15h20" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" />
+      </svg>
+    </button>
+    <nav id="nav" class="nav-principale" aria-label="Navigation principale">
+      <ul>
+        {entrees.map((e) => (
+          <li><a href={e.href} aria-current={actif(e.href)}>{e.label}</a></li>
+        ))}
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<script>
+  const burger = document.querySelector('.burger')!;
+  const nav = document.getElementById('nav')!;
+  burger.addEventListener('click', () => {
+    const ouvert = nav.classList.toggle('ouverte');
+    document.body.classList.toggle('nav-ouverte', ouvert);
+    burger.setAttribute('aria-expanded', String(ouvert));
+    burger.setAttribute('aria-label', ouvert ? 'Fermer le menu' : 'Menu');
+  });
+</script>

@@ -1,0 +1,35 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../../layouts/Base.astro';
+import Promenade from '../../components/Promenade.astro';
+
+const oeuvres = (await getCollection('oeuvres', (o) => o.data.collection === 'aquarelles')).sort(
+  (a, b) => a.data.ordre - b.data.ordre
+);
+---
+
+<Base
+  titre="Aquarelles — Annick Fleury"
+  description="La collection d'aquarelles d'Annick Fleury : transparences et lumière sur papier."
+>
+  <div class="conteneur" style="padding-block:clamp(2.5rem,6vw,4.5rem) 0">
+    <p class="kicker"><a href="/galerie/" style="text-decoration:none">Galerie</a> · Collection</p>
+    <h1 class="titre-section"><span class="mot">Aquare<span class="tint">l</span>les</span></h1>
+    {oeuvres.length > 0 ? (
+      <p style="max-width:var(--mesure);color:var(--encre-2);margin-top:1.5rem">
+        {oeuvres.length} œuvres. Sur grand écran, faites défiler : la salle se
+        parcourt comme une cimaise, de gauche à droite.
+      </p>
+    ) : (
+      <p style="max-width:var(--mesure);color:var(--encre-2);margin-top:1.5rem;font-family:var(--font-display);font-style:italic;font-size:var(--t-sub)">
+        Cette salle est en cours d'accrochage — les aquarelles arrivent bientôt.
+      </p>
+    )}
+  </div>
+  {oeuvres.length > 0 && <Promenade oeuvres={oeuvres} etiquette="Collection aquarelles" />}
+  {oeuvres.length === 0 && (
+    <div class="conteneur section">
+      <a class="bouton bouton--fantome" href="/galerie/acryliques/">Voir les acryliques</a>
+    </div>
+  )}
+</Base>

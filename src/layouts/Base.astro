@@ -1,0 +1,99 @@
+---
+import '@fontsource-variable/archivo/wdth.css'; /* axes wght + wdth */
+import '@fontsource-variable/inter';
+import '../styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import FondVivant from '../components/FondVivant.astro';
+
+interface Props {
+  titre: string;
+  description: string;
+  ogImage?: string;
+  /** JSON-LD supplémentaire propre à la page */
+  jsonLd?: object;
+}
+const { titre, description, ogImage, jsonLd } = Astro.props;
+const canonique = new URL(Astro.url.pathname, Astro.site);
+// carte logo AF par défaut quand la page n'a pas de visuel propre
+const ogAbs = new URL(ogImage ?? '/og-card.png', Astro.site).href;
+---
+
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{titre}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonique} />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-96.png" type="image/png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#0e0f13" />
+    <link rel="sitemap" href="/sitemap-index.xml" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={titre} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={canonique} />
+    <meta property="og:locale" content="fr_FR" />
+    {ogAbs && <meta property="og:image" content={ogAbs} />}
+    {ogAbs && <meta name="twitter:card" content="summary_large_image" />}
+    {jsonLd && <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />}
+  </head>
+  <body>
+    <a class="skip-link" href="#contenu">Aller au contenu</a>
+    <FondVivant />
+    <Header />
+    <main id="contenu">
+      <slot />
+    </main>
+    <Footer />
+    <script>
+      import Lenis from 'lenis';
+
+      const reduit = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      // apparition douce des œuvres
+      if (!reduit) {
+        const io = new IntersectionObserver(
+          (entries) =>
+            entries.forEach((e) => {
+              if (e.isIntersecting) {
+                e.target.classList.add('visible');
+                io.unobserve(e.target);
+              }
+            }),
+          { rootMargin: '0px 0px -8% 0px' }
+        );
+        document.querySelectorAll('.apparait').forEach((el) => io.observe(el));
+      }
+
+      // défilement Lenis + parallaxe légère.
+      // [data-vitesse] est un CONTENEUR mesuré ; la translation s'applique à
+      // son premier enfant pour ne pas fausser la mesure d'une frame à l'autre.
+      if (!reduit) {
+        const lenis = new Lenis({ lerp: 0.09 });
+        const parallaxe = [...document.querySelectorAll<HTMLElement>('[data-vitesse]')]
+          .map((el) => ({
+            el,
+            cible: el.firstElementChild as HTMLElement | null,
+            v: parseFloat(el.dataset.vitesse || '0'),
+          }))
+          .filter((p) => p.cible && p.v);
+        const raf = (t: number) => {
+          lenis.raf(t);
+          const vh = innerHeight;
+          for (const p of parallaxe) {
+            const r = p.el.getBoundingClientRect();
+            if (r.bottom < -200 || r.top > vh + 200) continue;
+            const d = r.top + r.height / 2 - vh / 2; // distance au centre de l'écran
+            p.cible!.style.transform = `translate3d(0, ${(-d * p.v).toFixed(1)}px, 0)`;
+          }
+          requestAnimationFrame(raf);
+        };
+        requestAnimationFrame(raf);
+      }
+    </script>
+  </body>
+</html>

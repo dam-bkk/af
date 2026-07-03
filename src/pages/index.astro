@@ -1,0 +1,108 @@
+---
+import { getCollection } from 'astro:content';
+import Base from '../layouts/Base.astro';
+import Oeuvre from '../components/Oeuvre.astro';
+import Monogramme from '../components/Monogramme.astro';
+import { ogImage } from '../lib/images';
+
+const toutes = (await getCollection('oeuvres')).sort((a, b) => a.data.ordre - b.data.ordre);
+const hero = toutes.find((o) => o.data.reference === 'AF-24-006')!;
+const heroSlug = hero.data.reference.toLowerCase();
+// trio flottant du héros : pièces détourées (PNG alpha) aux dominantes contrastées
+const scene = [
+  hero,
+  toutes.find((o) => o.data.reference === 'AF-24-005') ?? toutes[1],
+  toutes.find((o) => o.data.reference === 'AF-24-002') ?? toutes[2],
+];
+const alaune = toutes.filter((o) => o.data.featured && !scene.some((s) => s.id === o.id)).slice(0, 4);
+const acryliques = toutes.filter((o) => o.data.collection === 'acryliques');
+const aquarelles = toutes.filter((o) => o.data.collection === 'aquarelles');
+const entreeAcryliques = acryliques.find((o) => o.data.reference === 'AF-24-004') ?? acryliques[0];
+const entreeAquarelles = aquarelles[0];
+---
+
+<Base
+  titre="Annick Fleury — Artiste-peintre · Acryliques et aquarelles"
+  description="Peintures acryliques uniques et captivantes. Annick Fleury, artiste-peintre de la région nantaise, présente ses collections d'art contemporain."
+  ogImage={ogImage(heroSlug)}
+>
+  <section class="hero conteneur">
+    <div class="scene-toiles" aria-hidden="true">
+      <div class="toile toile--1" data-vitesse="0.09">
+        <div class="flotte"><Oeuvre oeuvre={scene[0]} mode="nu" cartel={false} loading="eager" fetchpriority="high" sizes="(min-width: 56rem) 24rem, 44vw" /></div>
+      </div>
+      <div class="toile toile--2" data-vitesse="0.16">
+        <div class="flotte flotte--2"><Oeuvre oeuvre={scene[1]} mode="nu" cartel={false} loading="eager" sizes="16rem" /></div>
+      </div>
+      <div class="toile toile--3" data-vitesse="0.05">
+        <div class="flotte flotte--3"><Oeuvre oeuvre={scene[2]} mode="nu" cartel={false} loading="eager" sizes="13rem" /></div>
+      </div>
+    </div>
+    <div class="contenu">
+      <Monogramme class="monogramme" degrade />
+      <h1>Annick Fleury</h1>
+      <p class="accroche">Artiste-peintre — acryliques &amp; aquarelles. Matières profondes, lumières du littoral atlantique.</p>
+      <p style="margin-top:2.4rem;display:flex;gap:0.9rem;flex-wrap:wrap">
+        <a class="bouton" href="/galerie/">Entrer dans la galerie</a>
+        <a class="bouton bouton--fantome" href="/atelier/">L'atelier</a>
+      </p>
+    </div>
+  </section>
+
+  <section class="section conteneur">
+    <p class="kicker">L'artiste</p>
+    <p style="font-family:var(--font-display);font-size:var(--t-sub);max-width:var(--mesure);font-weight:320">
+      Artiste-peintre de la région nantaise, je suis fière de vous présenter une
+      collection diversifiée d'œuvres d'art contemporain, réalisée avec passion
+      et constance.
+    </p>
+    <p style="max-width:var(--mesure);color:var(--encre-2)">
+      Couleurs vibrantes et textures riches ajoutent de la profondeur à chaque
+      œuvre — entre mer, forêts et lumières du littoral atlantique.
+    </p>
+  </section>
+
+  <section class="section section--panneau">
+    <div class="conteneur">
+      <h2 class="titre-section"><span class="mot">Les <span class="tint">c</span>ollections</span></h2>
+      <div class="panneaux-collections" style="margin-top:3rem">
+        <a class="panneau-collection" href="/galerie/acryliques/">
+          {entreeAcryliques && <Oeuvre oeuvre={entreeAcryliques} mode="nu" cartel={false} sizes="(min-width: 56rem) 26rem, 80vw" />}
+          <h3>Acryliques</h3>
+          <span class="compte">{acryliques.length} œuvres</span>
+        </a>
+        <a class="panneau-collection" href="/galerie/aquarelles/">
+          {entreeAquarelles ? (
+            <Oeuvre oeuvre={entreeAquarelles} mode="nu" cartel={false} sizes="(min-width: 56rem) 26rem, 80vw" />
+          ) : (
+            <div class="oeuvre-cadre" style="background:transparent;aspect-ratio:4/5;display:grid;place-items:center;color:var(--encre-2);box-shadow:none;border:1px solid var(--filet)">
+              <span style="font-family:var(--font-display);font-style:italic">Accrochage en cours…</span>
+            </div>
+          )}
+          <h3>Aquarelles</h3>
+          <span class="compte">{aquarelles.length ? `${aquarelles.length} œuvres` : 'Bientôt'}</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section conteneur">
+    <h2 class="titre-section"><span class="mot">À la <span class="tint">u</span>ne</span></h2>
+    <div class="grille-musee" style="margin-top:3.5rem">
+      {alaune.map((o) => <Oeuvre oeuvre={o} sizes="(min-width: 64rem) 24vw, 92vw" />)}
+    </div>
+  </section>
+
+  <section class="section section--panneau">
+    <div class="conteneur" style="max-width:52rem;text-align:center">
+      <p style="font-family:var(--font-display);font-size:var(--t-sub);font-weight:320">
+        Derrière chaque toile : un atelier, des pigments, du temps.
+      </p>
+      <p style="color:var(--encre-2)">
+        Découvrez la démarche d'Annick Fleury, sa biographie et les coulisses de
+        son travail entre acrylique et aquarelle.
+      </p>
+      <p style="margin-top:2rem"><a class="bouton bouton--fantome" href="/atelier/">Visiter l'atelier</a></p>
+    </div>
+  </section>
+</Base>
